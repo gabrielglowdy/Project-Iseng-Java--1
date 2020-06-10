@@ -5,15 +5,12 @@
  */
 package mind;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+
 import java.util.Scanner;
 
 /**
  *
- * @author g4732
+ * @author g4732z aka NDX
  */
 public class Mind {
 
@@ -25,9 +22,7 @@ public class Mind {
 
     public static void main(String[] args) {
 
-        
-
-        // TODO code application logic here
+    
         input = new Scanner(System.in);
 
         Brain brain = new Brain();

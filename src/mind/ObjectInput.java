@@ -7,7 +7,7 @@ package mind;
 
 /**
  *
- * @author g4732
+ * @author g4732z aka NDX
  */
 public class ObjectInput {
     String query, result;

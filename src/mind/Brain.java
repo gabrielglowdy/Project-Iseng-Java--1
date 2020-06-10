@@ -11,11 +11,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import static mind.Mind.dir;
 
 /**
  *
- * @author g4732
+ * @author g4732z aka NDX
  */
 public class Brain {
 
@@ -316,8 +315,9 @@ public class Brain {
 //        }
         System.err.println("I dont know how to answer " + query);
         System.out.print("I should answer : ");
-        Scanner input = new Scanner(System.in);
-        String result = input.nextLine();
+        Scanner inputx = new Scanner(System.in);
+        String result = inputx.nextLine();
+        inputx.close();
 
         learn(query, result);
         System.out.println("now, I know how to answer '" + query + "'");
