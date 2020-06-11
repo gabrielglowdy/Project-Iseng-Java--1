@@ -170,9 +170,18 @@ public class Brain {
                 refresh();
                 this.prevQuery = "";
                 return;
+
+            case "rearrange()":
+                refresh();
+                rearrange();
+                this.prevQuery = "";
+                return;
         }
 
+      
+        
 //        boolean findExact = false;
+
         for (int i = 0; i < knowledges.size(); i++) {
             if (knowledges.get(i).getQuery().toLowerCase().contains(input.toLowerCase())) {
 //                findExact = true;
@@ -317,11 +326,31 @@ public class Brain {
         System.out.print("I should answer : ");
         Scanner inputx = new Scanner(System.in);
         String result = inputx.nextLine();
-        inputx.close();
+//        inputx.close();
 
         learn(query, result);
         System.out.println("now, I know how to answer '" + query + "'");
 //        return mengandungUnsur;
     }
 
+    public void rearrange() {
+        boolean sorted = false;
+
+        while (!sorted) {
+            sorted = true;
+            for (int i = 0; i < knowledges.size() - 1; i++) {
+                if (knowledges.get(i).getQuery().length() > knowledges.get(i + 1).getQuery().length()) {
+                    if (debugMode) {
+                        System.out.println("Switch " + knowledges.get(i).getQuery() + "->" + knowledges.get(i + 1).getQuery());
+                    }
+                    ObjectInput tmp = knowledges.get(i);
+                    knowledges.set(i, knowledges.get(i + 1));
+                    knowledges.set(i + 1, tmp);
+                    sorted = false;
+                }
+            }
+        }
+        writeFile();
+        System.out.println("Rearrange Completed");
+    }
 }
